@@ -6,7 +6,7 @@
       :style="positionStyle"
       @mouseenter="clearTimer()"
       @mouseleave="startTimer()"
-      @click="click"
+      @click="click($event)"
       role="alert"
     >
       <i
@@ -96,9 +96,9 @@
         this.$el.parentNode.removeChild(this.$el);
       },
 
-      click() {
+      click(event) {
         if (typeof this.onClick === 'function') {
-          this.onClick();
+          this.onClick(event);
         }
       },
 
